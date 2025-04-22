@@ -1,7 +1,6 @@
 package fr.michaelchlon.cruddemo.entity;
 
 import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.*;
 
 @Entity
