@@ -15,16 +15,22 @@ public class CruddemoApplication {
 		SpringApplication.run(CruddemoApplication.class, args);
 	}
 
-	@Bean
-	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) {
-		return runner -> {
-			// createStudent(studentDAO);
-
-			// createMultipleStudents(studentDAO);
-
-			readStudent(studentDAO);
-		};
-	}
+	/**
+	 * Configures a `CommandLineRunner` bean that executes predefined operations
+	 * on the `StudentDAO` when the application starts.
+	 *
+	 * The runner can perform various operations such as creating students,
+	 * creating multiple students, or reading a student from the database.
+	 *
+	 * @param studentDAO The `StudentDAO` instance used to interact with the
+	 *                   database.
+	 * @return A `CommandLineRunner` that executes the specified operations.
+	 *
+	 *         Example usage:
+	 *         - Uncomment the desired operation (e.g., `createStudent`,
+	 *         `createMultipleStudents`, or `readStudent`)
+	 *         to perform it during application startup.
+	 */
 
 	// ______________________________________________________________________
 	private void readStudent(StudentDAO studentDAO) {
