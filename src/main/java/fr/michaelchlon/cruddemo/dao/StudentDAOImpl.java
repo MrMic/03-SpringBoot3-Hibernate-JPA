@@ -20,6 +20,7 @@ public class StudentDAOImpl implements StudentDAO {
     entityManager = theEntityManager;
   }
 
+  // ══════════════════════════════════════════════════════════════════════
   // implement save method
   @Override
   @Transactional
@@ -27,11 +28,13 @@ public class StudentDAOImpl implements StudentDAO {
     entityManager.persist(theStudent);
   }
 
+  // ______________________________________________________________________
   @Override
   public Student findById(Integer id) {
     return entityManager.find(Student.class, id);
   }
 
+  // ______________________________________________________________________
   @Override
   public List<Student> findAll() {
     // create a query
@@ -40,13 +43,21 @@ public class StudentDAOImpl implements StudentDAO {
     return theQuery.getResultList();
   }
 
+  // ______________________________________________________________________
   @Override
   public List<Student> findByLastName(String theLastName) {
     // create query
-    TypedQuery<Student> theQuery = entityManager.createQuery("from Student where lastName=:theLastName", Student.class);
+    TypedQuery<Student> theQuery =
+        entityManager.createQuery("from Student where lastName=:theLastName", Student.class);
     // set parameter on query
     theQuery.setParameter("theLastName", theLastName);
     // execute query and get result list
     return theQuery.getResultList();
+  }
+
+  @Override
+  @Transactional
+  public void update(Student theStudent) {
+    entityManager.merge(theStudent);
   }
 }
