@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+@EntityScan("fr.michaelchlon.cruddemo.entity")
 public class CruddemoApplication {
 
   public static void main(String[] args) {
